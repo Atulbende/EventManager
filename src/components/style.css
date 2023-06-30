@@ -1,0 +1,60 @@
+:root{
+  --bg:#1c355e;
+  --border:#4a5d7e;
+  --hover-color:#f4f8ff;
+  --hover:#667997;
+}
+.required-msg-shake {
+    animation: shaking 0.3s ease-out;
+  }
+  @keyframes shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+   }
+
+   .Valid__Msg{
+    color: #8b3939;
+    font-weight: 500;
+   }
+   .top-nav{
+     background-color: var(--bg)!important;
+   }
+
+   .btn{
+    max-width: 7rem;
+    width: 7rem;
+    margin: 0.7rem;
+    border-radius: 20rem;
+    padding: 0.7rem;
+    border: 0.1rem  solid var(--border);
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    transition: all  0.3s linear;
+    box-shadow: 0px 4px 5px 0px  rgba(0, 0 , 0, 0.1);
+    background-color: var(--bg);
+    color: var(--hover-color);
+}
+.notification{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.btn:hover{
+    transform: scale(1.1);
+    background-color: var(--hover);
+    color: var(--hover-color);
+}
+.btn span::first-letter{
+    font-size: large;
+    font-weight: 400;
+}
+/* container */
+.shadow{
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 5px 0px  rgba(0, 0 , 0, 0.1);
+}
