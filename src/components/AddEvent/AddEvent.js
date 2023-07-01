@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Validation } from '../validation';
 export default function AddEvent() {
   const [_id,setId]=useState(1);
-  const [CustomerData,SetCustomerData]=useState({Pid:_id,EventType:'',StartDate:'',EndDate:'',Description:'',EventHandleBy:'',EventOrganisation:'',TotalEvents:''});
-  const validation_type=[{'text':['EventType','StartDate','EndDate','Description','EventHandleBy','EventOrganisation','TotalEvents'],'date':['StartDate','EndDate']}];
+  const [CustomerData,SetCustomerData]=useState({Pid:_id,EventName:'',EventType:'',StartDate:'',EndDate:'',Description:'',EventHandleBy:'',EventOrganisation:'',TotalEvents:''});
+  const validation_type=[{'text':['EventName','EventType','StartDate','EndDate','Description','EventHandleBy','EventOrganisation','TotalEvents'],'date':['StartDate','EndDate']}];
   const [showNotification, setShowNotification] = useState(false);
   const setData=useDispatch();
   const  HandleInput=((e)=>{
@@ -25,13 +25,18 @@ export default function AddEvent() {
       }
   }
 function Clear() {
-  SetCustomerData({Pid:_id,EventType:'',StartDate:'',EndDate:'',Description:'',EventHandleBy:'',EventOrganisation:'',TotalEvents:''})
+  SetCustomerData({Pid:_id,EventName:'',EventType:'',StartDate:'',EndDate:'',Description:'',EventHandleBy:'',EventOrganisation:'',TotalEvents:''})
 };
   return (
-          <div className='container mt-3 shadow w-100'> 
+          <div className='container mt-3 shadow '> 
           <h1>Create Events</h1>
             <div className="row mb-4">
-                <div className="col-md-4 col-sm-12 col-xs-12">
+            <div className="col-md-6 col-sm-12 col-xs-12">
+              <label className="form-label" >Event Name</label>
+              <input type="text"  value={CustomerData.EventName} onChange={HandleInput}  id="EventName" className="form-control" />
+            </div>
+             
+                <div className="col-md-6 col-sm-12 col-xs-12">
                   <div className="form-outline">
                     <label className="form-label" >Event Type</label>
                     <select value={CustomerData.EventType} onChange={HandleInput} id="EventType"  className="form-select">
@@ -44,13 +49,13 @@ function Clear() {
                     </select>
                   </div>
                 </div>
-                <div className="col-md-4 col-sm-12 col-xs-12">
+                <div className="col-md-6 col-sm-12 col-xs-12">
                   <div className="form-outline">
                   <label className="form-label">Start Date</label>
                   <input type="date"  selected={CustomerData.StartDate} value={CustomerData.StartDate} onChange={HandleInput}  id="StartDate" className="form-control" />
                 </div>
                 </div>
-                <div className="col-md-4  col-sm-12 col-xs-12">
+                <div className="col-md-6  col-sm-12 col-xs-12">
                   <div className="form-outline">
                   <label className="form-label">End Date</label>
                   <input type="date" selected={CustomerData.EndDate}  value={CustomerData.EndDate} onChange={HandleInput}  id="EndDate" className="form-control" />
@@ -77,10 +82,10 @@ function Clear() {
         </div>
         <hr/>
         <div className="row">
-        <div className="col-10 notification">
+        <div className="col-8 notification">
         {showNotification && <span><i className="fa-solid fa-check mx-2"></i>Event Created successfully!</span>}
           </div>
-          <div className="col-2">
+          <div className="col-4 d-flex align-items-end flex-column">
           <button type="button" className="btn" onClick={()=>{save()}}> <i className="fa-solid fa-floppy-disk"></i><span>Save</span></button>
         </div>
     </div>

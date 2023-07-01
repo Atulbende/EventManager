@@ -10,7 +10,8 @@ export default function EventLists() {
   useEffect(()=>{
     const HeadTitle= [
       { title : 'Pid',data:'Pid'},
-      { title : 'Customer Name',data:'EventType' },
+      { title : 'Event Name',data:'EventName' },
+      { title : 'Event Type',data:'EventType' },
       { title : 'Start Date',data:'StartDate' },
       { title : 'EndDate',data:'EndDate' },
       { title : 'Description',data:'Description' },
